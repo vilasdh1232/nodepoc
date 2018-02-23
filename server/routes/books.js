@@ -1,5 +1,5 @@
 var express = require('express');
-var Book = require('./models/book');
+var Book = require('./../models/book');
 var router = express.Router();
 
 
@@ -22,8 +22,8 @@ router.get('/:boodId', function (req, res, next) {
 
 /* Add new book. */
 router.post('/', function (req, res, next) {
-  const newBookObj = new book(req.body);
-  new book(req.body).save(err => {
+  const newBookObj = new Book(req.body);
+  newBookObj.save(err => {
     if (err) return res.status(500).send(err);
     return res.status(200).send(newBookObj);
   });
