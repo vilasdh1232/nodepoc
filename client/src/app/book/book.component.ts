@@ -11,7 +11,7 @@ export class BookComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('/book').subscribe(data => {
+    this.http.get('http://localhost:4000/books').subscribe(data => {
       this.books = data;
     });
   }

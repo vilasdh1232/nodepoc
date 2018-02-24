@@ -7,6 +7,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
 
+const appRoutes: Routes = [
+  {
+    path: 'books',
+    component: BookComponent,
+    data: { title: 'Book List' }
+  },
+  { path: '',
+    redirectTo: '/books',
+    pathMatch: 'full'
+  }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,17 +37,6 @@ import { BookComponent } from './book/book.component';
   bootstrap: [AppComponent]
 })
 
-const appRoutes: Routes = [
-  {
-    path: 'books',
-    component: BookComponent,
-    data: { title: 'Book List' }
-  },
-  { path: '',
-    redirectTo: '/books',
-    pathMatch: 'full'
-  }
-];
 export class AppModule { 
   
 }
