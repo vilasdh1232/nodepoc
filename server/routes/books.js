@@ -12,8 +12,8 @@ router.get('/', function (req, res, next) {
 });
 
 /* GET books by id. */
-router.get('/:boodId', function (req, res, next) {
-  Book.findById(req.params.id, (err, book) => {
+router.get('/:bookId', function (req, res, next) {
+  Book.findById(req.params.bookId, (err, book) => {
     if (err) return res.status(500).send(err)
     return res.status(200).send(book);
   });

@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
+import { EmployeesComponent } from './employees/employees.component';
 
 const appRoutes: Routes = [
   {
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    BookComponent
+    BookComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,
