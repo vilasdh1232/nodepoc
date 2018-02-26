@@ -32,9 +32,9 @@ router.post('/', function (req, res, next) {
 
 /* Update book. */
 router.put('/:bookId', function (req, res, next) {
-  Book.findByIdAndUpdate(req.params.bookId, req.body, { new: true }, (err, todo) => {
+  Book.findByIdAndUpdate(req.params.bookId, req.body, { new: true }, (err, book) => {
     if (err) return res.status(500).send(err);
-    return res.send(todo);
+    return res.send(book);
   });
 });
 
