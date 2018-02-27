@@ -1,4 +1,4 @@
-export interface BookInterface {
+export interface Book {
     _id?: String,
     isbn?: String,
     title?: String,

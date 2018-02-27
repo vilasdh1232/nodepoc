@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { BookInterface } from '../interfaces/book.interface';
+import { Book } from '../shared/book.model';
 
 @Component({
   selector: 'app-book-create',
@@ -11,7 +11,7 @@ import { BookInterface } from '../interfaces/book.interface';
 })
 export class BookCreateComponent implements OnInit {
 
-  book: BookInterface = {};
+  book: Book = {};
 
   constructor(private http: HttpClient, private router: Router) { }
 

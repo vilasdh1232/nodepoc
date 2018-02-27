@@ -3,18 +3,27 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
-import { BookComponent } from './book/book.component';
+import { BookListComponent } from './books/book-list/book-list.component';
 import { EmployeesComponent } from './employees/employees.component';
-import { BookDetailComponent } from './book-detail/book-detail.component';
-import { BookCreateComponent } from './book-create/book-create.component';
-import { BookEditComponent } from './book-edit/book-edit.component';
+import { BookDetailComponent } from './books/book-detail/book-detail.component';
+import { BookCreateComponent } from './books/book-create/book-create.component';
+import { BookEditComponent } from './books/book-edit/book-edit.component';
+import { EmployeeComponent } from './employees/employee/employee.component';
+import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import { BooksComponent } from './books/books.component';
 
 const appRoutes: Routes = [
   {
+    path: 'employees',
+    component: EmployeesComponent,
+    data: { title: 'Employee List' }
+  },
+  {
     path: 'books',
-    component: BookComponent,
+    component: BookListComponent,
     data: { title: 'Book List' }
   },
   {
@@ -32,7 +41,8 @@ const appRoutes: Routes = [
     component: BookEditComponent,
     data: { title: 'Edit Book' }
   },
-  { path: '',
+  {
+    path: '',
     redirectTo: '/books',
     pathMatch: 'full'
   }
@@ -41,11 +51,14 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    BookComponent,
+    BookListComponent,
     EmployeesComponent,
     BookDetailComponent,
     BookCreateComponent,
-    BookEditComponent
+    BookEditComponent,
+    EmployeeComponent,
+    EmployeeListComponent,
+    BooksComponent
   ],
   imports: [
     BrowserModule,
@@ -54,12 +67,13 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
-    )
+    ),
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 
-export class AppModule { 
-  
+export class AppModule {
+
 }

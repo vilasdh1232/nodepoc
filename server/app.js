@@ -16,6 +16,7 @@ db.on('error', console.error.bind(console, 'connection error'));
 
 var index = require('./routes/index');
 var books = require('./routes/books');
+var employees = require('./routes/employees');
 
 var app = express();
 
