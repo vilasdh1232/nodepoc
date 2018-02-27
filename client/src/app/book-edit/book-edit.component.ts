@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { BookInterface } from '../interfaces/book.interface';
 
 @Component({
   selector: 'app-book-edit',
@@ -10,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BookEditComponent implements OnInit {
 
-  book = {};
+  book: BookInterface = {};
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
 
@@ -24,8 +25,8 @@ export class BookEditComponent implements OnInit {
     });
   }
 
-  updateBook(id, data) {
-    this.http.put('http://localhost:5000/book/'+id, data)
+  updateBook(id) {
+    this.http.put('http://localhost:5000/book/'+id, this.book)
       .subscribe(res => {
           let id = res['_id'];
           this.router.navigate(['/book-details', id]);
