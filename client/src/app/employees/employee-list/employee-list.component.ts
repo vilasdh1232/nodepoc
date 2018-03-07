@@ -13,7 +13,7 @@ export class EmployeeListComponent implements OnInit {
  constructor(private employeeService: EmployeeService, private tostr: ToastrService) { }
 
  ngOnInit() {
-   var x = this.employeeService.getData();
+   var x = this.employeeService.getAllEmployees();
    x.snapshotChanges().subscribe(item => {
      this.employeeList = [];
      item.forEach(element => {
@@ -30,7 +30,7 @@ export class EmployeeListComponent implements OnInit {
 
  onDelete(key: string) {
    if (confirm('Are you sure to delete this record ?') == true) {
-     this.employeeService.deleteEmployee(key);
+     this.employeeService.deleteEmployeeById(key);
      this.tostr.warning("Deleted Successfully", "Employee register");
    }
  }

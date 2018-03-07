@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
+const API_URL = environment.apiUrl;
 
 @Component({
   selector: 'app-book',
@@ -11,9 +13,8 @@ export class BookListComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('http://localhost:5000/book').subscribe(data => {
+    this.http.get(API_URL + '/book').subscribe(data => {
       this.books = data;
-      console.log(this.books);
     });
   }
 
