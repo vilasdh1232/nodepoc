@@ -3,6 +3,7 @@ const app = express();
 var config = require('./config/config');
 
 require('./config/mongodb')(config.dbConnection);
+require('./config/passport')(app);
 require('./routes/index.route')(app);
 require('./config/express')(app);
 

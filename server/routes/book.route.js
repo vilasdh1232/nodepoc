@@ -1,11 +1,13 @@
 var express = require('express');
 var controllers = require('./../controllers/index.ctrl');
 var bookCtrl = controllers.bookCtrl;
+var passport = require('passport');
+
 
 var router = express.Router();
 
 /* GET books listing. */
-router.get('/', bookCtrl.getAllBooks);
+router.get('/', passport.authenticate('jwt', { session: false}), bookCtrl.getAllBooks);
 
 /* GET books by id. */
 router.get('/:bookId', bookCtrl.getBookById);
@@ -17,7 +19,7 @@ router.post('/', bookCtrl.addNewBook);
 router.put('/:bookId', bookCtrl.updateBookById);
 
 /* Delete book by Id. */
-router.delete('/:bookId',bookCtrl.deleteBookById);
+router.delete('/:bookId', bookCtrl.deleteBookById);
 
 module.exports = router;
 
